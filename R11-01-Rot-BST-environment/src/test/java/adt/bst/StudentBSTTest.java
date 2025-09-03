@@ -6,14 +6,23 @@ import org.junit.Before;
 import org.junit.Test;
 
 import adt.bst.BSTImpl;
+import adt.bst.extended.FloorCeilBSTImpl;
 import adt.bt.BTNode;
 
 public class StudentBSTTest {
 
 	private BSTImpl<Integer> tree;
+	private BSTImpl<Integer> tree2;
 	private BTNode<Integer> NIL = new BTNode<Integer>();
 
 	private void fillTree() {
+		Integer[] array = { 6, 23, -34, 5, 9, 2, 0, 76, 12, 67, 232, -40 };
+		for (int i : array) {
+			tree.insert(i);
+		}
+	}
+
+	private void fillTree2(BST tree) {
 		Integer[] array = { 6, 23, -34, 5, 9, 2, 0, 76, 12, 67, 232, -40 };
 		for (int i : array) {
 			tree.insert(i);
@@ -151,6 +160,18 @@ public class StudentBSTTest {
 		assertEquals(new Integer(-40), tree.search(-40).getData());
 		assertEquals(new Integer(-34), tree.search(-34).getData());
 		assertEquals(NIL, tree.search(2534));
+	}
+
+	@Test
+	public void testEquals() {
+		SimpleBSTManipulation bla = new SimpleBSTManipulationImpl();
+		BST tree1 = new BSTImpl();
+		BST tree2 = new BSTImpl();
+		fillTree2(tree1);
+		fillTree2(tree2); 
+		BST tree3 = new BSTImpl();// -40 -34 0 2 5 6 9 12 23 67 76 232
+		assertTrue(bla.isSimilar((BST) tree2, (BST) tree1));
+		assertFalse(bla.isSimilar((BST) tree2, (BST) tree3));
 	}
 
 }

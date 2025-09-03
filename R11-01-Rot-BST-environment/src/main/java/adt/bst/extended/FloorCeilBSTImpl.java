@@ -13,12 +13,12 @@ public class FloorCeilBSTImpl extends BSTImpl<Integer> implements FloorCeilBST {
 
 	@Override
 	public Integer floor(Integer[] array, double numero) {
-		BSTImpl<Integer> bst = new BSTImpl<>(); 
+		this.root = new BSTNode<>();
 
 		for (Integer i : array) {
-			bst.insert(i);
+			this.insert(i);
 		}
-		return floor(numero, bst.getRoot());
+		return floor(numero, this.getRoot());
 	}
 
 	private Integer floor(double numero, BTNode<Integer> node){
@@ -46,12 +46,12 @@ public class FloorCeilBSTImpl extends BSTImpl<Integer> implements FloorCeilBST {
 
 	@Override
 	public Integer ceil(Integer[] array, double numero) {
-		BSTImpl<Integer> bst = new BSTImpl<>();
+		this.root = new BSTNode<>();
 
 		for (Integer i : array) {
-			bst.insert(i);
+			this.insert(i);
 		}
-		return ceil(numero, bst.getRoot());
+		return ceil(numero, this.getRoot());
 
 	}
 
