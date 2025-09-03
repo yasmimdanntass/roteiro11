@@ -152,4 +152,5 @@ public class StudentBSTTest {
 		assertEquals(new Integer(-34), tree.search(-34).getData());
 		assertEquals(NIL, tree.search(2534));
 	}
+
 }
