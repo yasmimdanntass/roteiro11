@@ -226,7 +226,6 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 		return result; 
 	}
 
-
 	@Override
 	public T[] preOrder() {
 		T[] array = (T[]) new Comparable[this.size()];
